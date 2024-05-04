@@ -1,7 +1,15 @@
+import About from "../About/About";
+import Banner from "../Banner/Banner";
+import Service from "../Service/Service";
+
+ 
+
 function Home() {
   return (
     <div>
-      <h1 className="text-3xl">this is Home page </h1>
+      <Banner />
+      <About />
+      <Service />
     </div>
   );
 }
