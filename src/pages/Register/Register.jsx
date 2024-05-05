@@ -1,8 +1,8 @@
-/* eslint-disable react/no-unescaped-entities */
 import { Link } from "react-router-dom";
 import img from "../../assets/images/login/login.svg";
 
-function Login() {
+/* eslint-disable react/no-unescaped-entities */
+function Register() {
   return (
     <div className="hero">
       <div className="hero-content flex flex-col lg:flex-row justify-around w-full">
@@ -11,7 +11,18 @@ function Login() {
         </div>
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form className="card-body">
-            <h1 className="text-3xl font-bold text-center">Login!</h1>
+            <h1 className="text-3xl font-bold text-center">Register!</h1>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Name"
+                className="input input-bordered"
+                required
+              />
+            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -25,7 +36,7 @@ function Login() {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text">Confirm Password</span>
               </label>
               <input
                 type="password"
@@ -40,12 +51,12 @@ function Login() {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-error text-white">Login</button>
+              <button className="btn btn-error text-white">Register</button>
             </div>
             <p className="text-center">
-              I don't have any account{" "}
-              <Link className="link text-orange-600" to="/register">
-                Register Now
+              I have an account{" "}
+              <Link className="link text-orange-600" to="/login">
+                Login Now
               </Link>
             </p>
           </form>
@@ -55,4 +66,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
