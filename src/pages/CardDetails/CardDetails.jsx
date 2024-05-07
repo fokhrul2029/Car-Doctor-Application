@@ -14,6 +14,7 @@ function CardDetails() {
       .then((res) => res.json())
       .then((data) => setBookings(data));
   }, []);
+
   return (
     <div>
       <h1 className="text-3xl text-center py-10 rounded-lg bg-gray-200">

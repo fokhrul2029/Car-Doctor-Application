@@ -1,6 +1,17 @@
 /* eslint-disable react/prop-types */
 function BookingRow({ item }) {
-  const { name, title, price, img, email } = item;
+  const { _id, name, title, price, img, email } = item;
+
+  const handleDelete = (id) => {
+    const proceed = confirm("Are you sure?");
+    if (proceed) {
+      fetch(`http://localhost:3000/bookings/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+    }
+  };
   return (
     <tr>
       <td>
@@ -25,7 +36,12 @@ function BookingRow({ item }) {
       <td>{email}</td>
       <th className="space-x-2">
         <button className="btn btn-info text-white">Pending</button>
-        <button className="btn btn-error text-white">Delete</button>
+        <button
+          onClick={() => handleDelete(_id)}
+          className="btn btn-error text-white"
+        >
+          Delete
+        </button>
       </th>
     </tr>
   );
