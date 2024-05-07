@@ -18,10 +18,7 @@ function Navbar() {
       </li>
       <li>
         <Link to="/about">About</Link>
-      </li>
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
+      </li> 
     </>
   );
   return (
@@ -64,7 +61,7 @@ function Navbar() {
             Logout
           </a>
         ) : (
-          <a className="btn">Button</a>
+          <Link to="/login" className="btn">Login</Link>
         )}
       </div>
     </div>

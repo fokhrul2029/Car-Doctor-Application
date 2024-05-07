@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import { FaArrowRight } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 function ServiceCard({ service }) {
-  const { img, title, price } = service;
+  const { _id, img, title, price } = service;
   return (
     <div className="card card-compact bg-base-100 shadow-xl ">
       <figure>
@@ -13,7 +14,9 @@ function ServiceCard({ service }) {
 
         <div className="card-actions justify-end text-orange-500">
           <p className="font-bold">Price : ${price}</p>
-          <FaArrowRight />
+          <Link to={`/checkout/${_id}`}>
+            <FaArrowRight />
+          </Link>
         </div>
       </div>
     </div>
