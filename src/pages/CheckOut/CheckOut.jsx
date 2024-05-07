@@ -24,6 +24,7 @@ function CheckOut() {
       date,
       price: amount,
       service_id: _id,
+      status: "pending",
     };
     fetch("http://localhost:3000/bookings", {
       method: "POST",

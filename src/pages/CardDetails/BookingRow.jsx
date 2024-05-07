@@ -1,17 +1,6 @@
 /* eslint-disable react/prop-types */
-function BookingRow({ item }) {
-  const { _id, name, title, price, img, email } = item;
-
-  const handleDelete = (id) => {
-    const proceed = confirm("Are you sure?");
-    if (proceed) {
-      fetch(`http://localhost:3000/bookings/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-    }
-  };
+function BookingRow({ item, handleDelete, handleConfirm }) {
+  const { _id, name, title, price, img, email, status } = item;
   return (
     <tr>
       <td>
@@ -35,7 +24,16 @@ function BookingRow({ item }) {
       </td>
       <td>{email}</td>
       <th className="space-x-2">
-        <button className="btn btn-info text-white">Pending</button>
+        {status === "confirmed" ? (
+          <span className="p-2 bg-gray-200 font-bold">confirmed</span>
+        ) : (
+          <button
+            onClick={() => handleConfirm(_id)}
+            className="btn btn-info text-white"
+          >
+            Pending
+          </button>
+        )}
         <button
           onClick={() => handleDelete(_id)}
           className="btn btn-error text-white"
