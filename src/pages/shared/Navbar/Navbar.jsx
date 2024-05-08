@@ -2,13 +2,18 @@ import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.svg";
 import { useContext } from "react";
 import { AuthContext } from "../../../contextApi/AuthProvider";
+import axios from "axios";
 
 function Navbar() {
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogout = () => {
     logOut()
-      .then(() => console.log("Logout Success"))
+      .then(() =>{
+        axios.post("http://localhost:3000/logout", )
+        console.log("Logout Success")
+
+      })
       .catch((error) => console.error(error));
   };
   const links = (

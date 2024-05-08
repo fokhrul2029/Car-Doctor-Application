@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import img from "../../assets/images/login/login.svg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contextApi/AuthProvider";
-import axios from "axios";
 
 function Login() {
   const [email, setEmail] = useState(null);
@@ -18,13 +17,6 @@ function Login() {
     logIn(email, password)
       .then((res) => {
         console.log(res.user);
-        // alert("User Login Success!");
-        const user = { email };
-        axios
-          .post("http://localhost:3000/jwt", user , {withCredentials:true})
-          .then((res) => {
-            console.log(res.data);
-          });
       })
       .catch((error) => console.error(error));
   };
