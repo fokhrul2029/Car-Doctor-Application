@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { AuthContext } from "../../contextApi/AuthProvider";
 import BookingRow from "./BookingRow";
+import axios from "axios";
 
 function CardDetails() {
   const { user } = useContext(AuthContext);
@@ -10,10 +11,10 @@ function CardDetails() {
 
   const url = `http://localhost:3000/bookings?email=${user?.email}`;
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setBookings(data));
-  }, []);
+    axios
+      .get(url, { withCredentials: true })
+      .then((res) => setBookings(res.data));
+  }, [url]);
 
   const handleDelete = (id) => {
     const proceed = confirm("Are you sure?");
