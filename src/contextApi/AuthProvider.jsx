@@ -37,7 +37,7 @@ function AuthProvider({ children }) {
       setLoading(false);
       if (currentUser) {
         axios
-          .post("http://localhost:3000/jwt", loggedUser, {
+          .post("https://car-doctor-server-chi-peach.vercel.app/jwt", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {
@@ -45,7 +45,7 @@ function AuthProvider({ children }) {
           });
       } else {
         axios
-          .post("http://localhost:3000/logout", loggedUser, {
+          .post("https://car-doctor-server-chi-peach.vercel.app/logout", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {

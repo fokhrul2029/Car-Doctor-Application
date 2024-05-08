@@ -10,7 +10,7 @@ function Navbar() {
   const handleLogout = () => {
     logOut()
       .then(() =>{
-        axios.post("http://localhost:3000/logout", )
+        axios.post("https://car-doctor-server-chi-peach.vercel.app/logout", )
         console.log("Logout Success")
 
       })

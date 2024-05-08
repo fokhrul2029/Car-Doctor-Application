@@ -9,7 +9,7 @@ function CardDetails() {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
 
-  const url = `http://localhost:3000/bookings?email=${user?.email}`;
+  const url = `https://car-doctor-server-chi-peach.vercel.app/bookings?email=${user?.email}`;
   useEffect(() => {
     axios
       .get(url, { withCredentials: true })
@@ -20,7 +20,7 @@ function CardDetails() {
     const proceed = confirm("Are you sure?");
     console.log(id);
     if (proceed) {
-      fetch(`http://localhost:3000/bookings/${id}`, {
+      fetch(`https://car-doctor-server-chi-peach.vercel.app/bookings/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -34,7 +34,7 @@ function CardDetails() {
   };
   const handleConfirm = (id) => {
     const data = { status: "confirmed" };
-    fetch(`http://localhost:3000/bookings/${id}`, {
+    fetch(`https://car-doctor-server-chi-peach.vercel.app/bookings/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

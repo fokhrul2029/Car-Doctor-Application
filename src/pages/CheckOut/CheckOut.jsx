@@ -26,7 +26,7 @@ function CheckOut() {
       service_id: _id,
       status: "pending",
     };
-    fetch("http://localhost:3000/bookings", {
+    fetch("https://car-doctor-server-chi-peach.vercel.app/bookings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
